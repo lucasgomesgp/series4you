@@ -1,0 +1,55 @@
+.centralFlash {
+    height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+    position: relative;
+
+    .bgOpacity {
+        background-color: #840206d7;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: 2;
+        opacity: 0.8;
+    }
+
+    .videoBg {
+        position: absolute;
+        z-index: -1;
+    }
+
+    .centralArea {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        z-index: 3;
+        left: 150px;
+        gap: 200px;
+
+        .logoLightning {
+            .redArea {
+            }
+            .borderYellow{
+                
+            }
+        }
+        .imageCentral {
+        }
+    }
+    .lightning {
+        position: absolute;
+        z-index: 2;
+    }
+}
+
+@keyframes lightRedArea {
+    to {
+       fill: red; 
+    }
+}
+
+@keyframes yellowBorder{
+
+}
+
