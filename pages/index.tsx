@@ -2,7 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import flashImg from "../public/images/flash.png";
 import lightningImg from "../public/images/lightning.png";
-import logoImg from "../public/Logo.svg";
+import CurrentSerie from "../components/currentSerie";
+import { series } from "../lib/context";
 import styles from "../styles/home.module.scss";
 
 export default function Home() {
@@ -43,15 +44,17 @@ export default function Home() {
                   fill="black"
                 />
               </g>
-              <g id="raio" >
-                <path className={styles.redArea}
+              <g id="raio">
+                <path
+                  className={styles.redArea}
                   d="M121.227 49.501L139.664 13.6424L149.805 3.29862L177 1L170.777 9.8274L149.805 42.6051L162.941 40.7662L143.812 67.4303H159.394L118 118L133.211 79.1532L118 80.5324L129.754 49.501H121.227Z"
                   fill="#FD0000"
                 />
-                <path className={styles.borderYellow}
+                <path
+                  className={styles.borderYellow}
                   d="M139.664 13.6424L121.227 49.501H129.754L118 80.5324L133.211 79.1532L118 118L159.394 67.4303H143.812L162.941 40.7662L149.805 42.6051L170.777 9.82741M139.664 13.6424L149.805 3.29862L177 1L170.777 9.82741M139.664 13.6424L170.777 9.82741"
                   stroke="#FFF500"
-                  stroke-width="4"
+                  strokeWidth="4"
                 />
               </g>
             </g>
@@ -73,7 +76,16 @@ export default function Home() {
           className={styles.lightning}
         />
       </header>
-      <main></main>
+      <main className={styles.mainSeries}>
+        <h2>CATÁLOGO</h2>
+        <div className={styles.allSeries}>
+          {series.map((current) => {
+            return (
+              <CurrentSerie image={current.image} slug={current.slug}/>
+            );
+          })}
+        </div>
+      </main>
     </div>
   );
 }
