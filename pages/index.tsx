@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import flashImg from "../public/images/flash.png";
 import lightningImg from "../public/images/lightning.png";
@@ -60,13 +61,15 @@ export default function Home() {
             </g>
           </svg>
 
-          <Image
-            src={flashImg}
-            alt="The Flash"
-            width={400}
-            height={664}
-            className={styles.imageCentral}
-          />
+          <Link href="/series/flash">
+            <Image
+              src={flashImg}
+              alt="The Flash"
+              width={400}
+              height={664}
+              className={styles.imageCentral}
+            />
+          </Link>
         </div>
         <Image
           src={lightningImg}
@@ -80,9 +83,14 @@ export default function Home() {
         <h2>CATÁLOGO</h2>
         <div className={styles.allSeries}>
           {series.map((current) => {
-            if(current.slug !== "flash"){
+            if (current.slug !== "flash") {
               return (
-                <CurrentSerie key={current.slug} image={current.image} slug={current.slug} name={current.name} />
+                <CurrentSerie
+                  key={current.slug}
+                  image={current.image}
+                  slug={current.slug}
+                  name={current.name}
+                />
               );
             }
           })}
