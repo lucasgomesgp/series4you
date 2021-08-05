@@ -13,12 +13,9 @@ export default function Serie() {
     <>
       {chooseSerie.map((serie) => {
         if (serie) {
-          const { slug, name, about, wallpaper} = serie;
+          const { slug, name, about, wallpaper, video } = serie;
           return (
-            <div
-              key={slug}
-              className={styles.container}
-            >
+            <div key={slug} className={styles.container}>
               <div className="topArea">
                 <Image
                   src={wallpaper}
@@ -31,6 +28,15 @@ export default function Serie() {
               </div>
               <div className={styles.about}>
                 <p className={styles.blue}>{about}</p>
+                <iframe
+                  width="560"
+                  height="300"
+                  src={video}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
               <div className={styles.footerSerie}>
                 <Link href="/">
