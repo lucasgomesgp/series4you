@@ -80,9 +80,11 @@ export default function Home() {
         <h2>CATÁLOGO</h2>
         <div className={styles.allSeries}>
           {series.map((current) => {
-            return (
-              <CurrentSerie image={current.image} slug={current.slug}/>
-            );
+            if(current.slug !== "flash"){
+              return (
+                <CurrentSerie key={current.slug} image={current.image} slug={current.slug} name={current.name} />
+              );
+            }
           })}
         </div>
       </main>
